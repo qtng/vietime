@@ -68,14 +68,35 @@ Show character definitions if available (only when *candidate_list* is enabled)
     
 ### list_changed [null]
 
-Handler for candidate list change event
+Handler function for candidate list change event. You can use this handler to implement you own candidate list display.
+
+Example:
+
+    $("#input").vietime({
+        candidate_list: true,
+        list_changed: function(container, items, page, pages, candidates){
+	    console.log('Found ' + items + ' candidates:', candidates)
+	}
+    })
+
         
 ### candidate_selected [null]
 
-Handler for candidate selection event.
-Passed parameters are: glyph, word
-Must return glyph or an other string to replace the glyph
-    
+Handler function for candidate selection event. Passed parameters are: glyph, typed_word.
+*glyph* is what the user selected from the candidate list. *typed_word* is what the user typed and will be replaced by *glyph*.
+The handler function must return *glyph* or an other string to replace *glyph*.
+
+Example:
+
+    $("#input").vietime({
+        candidate_list: true,
+        candidate_selected: function(glyph, typed_word){
+	    console.log('The word ' + typed_word + ' will be replaced by ' + glyph);
+	    return glyph;
+	}
+    })
+
+
 ### font_list [""]
 
 Font stack to use for character display in candidate list.
