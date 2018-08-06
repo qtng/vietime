@@ -2,10 +2,12 @@
 
 **Vietnamese IME for Quoc Ngu and Chu Han Nom**
 
-A JQuery Extension that provieds an IME (input method editor) for the Vietnamese language.
+VietIME allows Vietnamese typing on HTML input fields and textareas (supports Telex and VNI).
 
-VietIME adds Vietnamese typing support for input fields and textareas. Both Vietnamese writing systems are supported, i.e. *Quoc Ngu* and *Chu Han Nom*.
+Chu **Han-Nom** conversion is supported if *candidate_list* is set to *true*.
 
+See a working example:
+https://www.chunom.org/pages/ime/
 
 ## Usage HTML
 	
@@ -15,23 +17,23 @@ VietIME adds Vietnamese typing support for input fields and textareas. Both Viet
 
 ## Usage JavaScript
 
-    // Quoc Ngu only using Telex
+    // Quoc-ngu only using Telex
     $("#input").vietime({method: 1});
     
-    // Quoc Ngu only using VNI
+    // Quoc-ngu only using VNI
     $("#input").vietime({method: 2});
 
-    // Quoc Ngu only using Telex and VNI
+    // Quoc-ngu only using Telex and VNI
     $("#input").vietime({method: 4});
 
-    // Chu Han Nom and Quoc Ngu using Telex
+    // Support Han-Nom and Quoc-ngu using Telex
     $("#input").vietime({ candidate_list: true });
 
 ## Options
 
 ### candidate_list [false]
 
-Enable Chu Nom typing
+Enable Han-Nom conversion.
         
 ### defer [false]
 
@@ -39,11 +41,11 @@ Initializes IME only when element is focused.
         
 ### return_select [false]
 
-Enable return key as selector
+Enable return key as Han-Nom selector
     
 ### space_select [false]
 
-Enable space key as selector
+Enable space key as Han-Nom selector
     
 ### dictionaries ['//www.chunom.org/entry/generated_chars/']
 
