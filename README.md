@@ -10,7 +10,7 @@ VietIME adds Vietnamese typing support for input fields and textareas. Both Viet
 ## Usage HTML
 	
     <script src="jquery.js"></script>
-    <script src="vietime.min.js"></script>
+    <script src="vietime.js"></script>
     <input id="input"/>
 
 ## Usage JavaScript
