@@ -1,5 +1,6 @@
 /*
 	VietIME Extension for jQuery
+*/
 
 // Increment to wipe permanent cache
 var CACHEVERSION = '2017-11-22';
