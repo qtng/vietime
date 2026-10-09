@@ -135,6 +135,18 @@ CSS border style of candidate list
 
 Color of separator between candidates
 
+### hover_color ['rgba(10, 120, 255, .4)']
+
+Background color of the candidate under the mouse pointer
+
+### glyph_hover_background ['white']
+
+Background behind the glyph of the hovered candidate. Set to a dark color when using light *glyph_color* on a dark page.
+
+### definition_hover_background ['white']
+
+Background of an expanded definition when hovered
+
 ### padding [2]
 
 CSS padding of candidates

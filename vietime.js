@@ -955,7 +955,7 @@ var CACHEVERSION = '2017-11-22';
 			$node.unbind(".ime");
 		}
 		
-		if (isFirstInit && s.candidate_list && (s.dictionaries || s.cached_dictionaries)) {
+		if (isFirstInit && s.candidate_list && (s.dictionaries || s.cached_dictionary)) {
 			loadDictionaries(this);
 		}
 		
@@ -1317,15 +1317,15 @@ var CACHEVERSION = '2017-11-22';
 			+ prefix+" .ime-number,"+prefix+" .ime-glyph,"+prefix+" .ime-definition,.ime-text { line-height: 30px }"
 			+ prefix+" .ime-candidate:first-child { border-top: none }"
 			+ prefix+" .ime-candidate { cursor: pointer; padding: "+parseInt(s.padding)+"px 0; padding-left: 10px; border-top: 1px solid " + s.grid_color + "; white-space: nowrap; overflow: hidden }"
-			+ prefix+" .ime-candidate:hover { background-color: rgba(10, 120, 255, .4); transition: background-color 0.3s }"
+			+ prefix+" .ime-candidate:hover { background-color: " + s.hover_color + "; transition: background-color 0.3s }"
 			+ prefix+" .ime-number { float: left; display: inline-block; font-style: normal; margin-left: 0.25em; margin-right: .5em }"
 			+ prefix+" .ime-definition { font-size: 0.7em; float: right; display: inline-block; margin-left: 1em; width: 8em; overflow: hidden; white-space: nowrap; opacity: 0.8; color: " + s.text_color + "; text-decoration: none; text-align: left }"
 			//+ ".ime-definition:hover { overflow: visible; width: auto; display: absolute; text-align: right; margin: 0 0.3em; opacity: 1 }"
 			+ prefix+" .ime-definition:hover em { display: none }"
-			+ prefix+" .ime-definition:hover span { background-color: white; padding: 0.42em; padding-right: 0; border-radius: 0.2em; border: 1px solid gray; transition: background-color 1.8s }"
+			+ prefix+" .ime-definition:hover span { background-color: " + s.definition_hover_background + "; padding: 0.42em; padding-right: 0; border-radius: 0.2em; border: 1px solid gray; transition: background-color 1.8s }"
 			+ prefix+" .ime-definition-arrow { width: 20px; font-weight: bold }"
 			+ prefix+" .ime-glyph { float: left; color: " + (s.glyph_color||s.text_color) +"; display: inline-block; font-size:1.5em; padding: 0 0.1em; font-family: " + fonts + "}"
-			+ prefix+" .ime-candidate:hover .ime-glyph { background-color: white; border-radius: 0.2em }"
+			+ prefix+" .ime-candidate:hover .ime-glyph { background-color: " + s.glyph_hover_background + "; border-radius: 0.2em }"
 			+ prefix+" .ime-text { display: inline-block; float: left; margin-left: 1em; font-family: sans-serif }"
 			+ prefix+" .ime-text-head { color: " + s.text_color + " }"
 			+ prefix+" .ime-text-remainder { color: " + s.autocomplete_color + " }"
@@ -1412,6 +1412,9 @@ var CACHEVERSION = '2017-11-22';
 			autocomplete_color: '#0000ff',
 			border: '2px solid #000000',
 			grid_color: '#333333',
+			hover_color: 'rgba(10, 120, 255, .4)', /* Background of hovered candidate */
+			glyph_hover_background: 'white', /* Background behind hovered glyph */
+			definition_hover_background: 'white', /* Background of expanded definition */
 			padding: 2,
 			position: 'bottom',
 			offsetX: 0,
